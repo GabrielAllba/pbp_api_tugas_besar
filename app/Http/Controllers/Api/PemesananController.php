@@ -156,4 +156,25 @@ class PemesananController extends Controller
             'data' => null
         ], 400);
     }
+
+    /**
+     * Search Pemesanan by id_user.
+     */
+    public function searchByUserId($id_user)
+    {
+        $pemesanan = Pemesanan::where('id_user', $id_user)->get();
+
+        if (count($pemesanan) > 0) {
+            return response([
+                'message' => 'Pemesanan found for user with id ' . $id_user,
+                'data' => $pemesanan
+            ], 200);
+        }
+
+        return response([
+            'message' => 'Pemesanan not found for user with id ' . $id_user,
+            'data' => null
+        ], 404);
+    }
+
 }

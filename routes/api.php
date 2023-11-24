@@ -15,6 +15,7 @@ Route::get('/pemesanan', [App\Http\Controllers\Api\PemesananController::class, '
 Route::post('/pemesanan', [App\Http\Controllers\Api\PemesananController::class, 'store']);
 Route::get('/pemesanan/{id}', [App\Http\Controllers\Api\PemesananController::class, 'show']);
 Route::put('/pemesanan/{id}', [App\Http\Controllers\Api\PemesananController::class, 'update']);
+Route::get('/pemesanan/user/{id_user}', [App\Http\Controllers\Api\PemesananController::class, 'searchByUserId']);
 
 
 // });
