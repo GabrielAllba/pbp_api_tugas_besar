@@ -62,8 +62,11 @@ class UserController extends Controller
         $update = $request->all();
         $validate = validator::make($update,[
             'username' => 'required|max:60',
-            'email' => 'required|email:rfc,dns|unique:users',
-            'password' => 'required|min:8',
+            'email' => [
+                'required',
+                'email:rfc,dns',
+                Rule::unique('users')->ignore($user->id),
+            ],
             'no_telp' => [
                 'required',
                 'regex:/^08[0-9]{9,11}$/'
@@ -74,15 +77,9 @@ class UserController extends Controller
         if($validate->fails()){
             return response(['message'=> $validate->errors()],400);
         }
-
-        
-        $user->password = bcrypt($update['password']);
-        
-        $registrationData['password'] = bcrypt($request->password);
         
         $user->username = $update['username'];
         $user->email = $update['email'];
-        $user->password = $update['password'];
         $user->no_telp = $update['no_telp'];
         $user->tgl_lahir = $update['tgl_lahir'];
 
