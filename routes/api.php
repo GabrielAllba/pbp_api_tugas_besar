@@ -18,5 +18,11 @@ Route::put('/pemesanan/{id}', [App\Http\Controllers\Api\PemesananController::cla
 Route::get('/pemesanan/user/{id_user}', [App\Http\Controllers\Api\PemesananController::class, 'searchByUserId']);
 Route::delete('/pemesanan/{id}', [App\Http\Controllers\Api\PemesananController::class, 'destroy']);
 
+Route::get('/review', [App\Http\Controllers\Api\ReviewController::class, 'index']);
+Route::post('/review', [App\Http\Controllers\Api\ReviewController::class, 'store']);
+Route::get('/review/{id}', [App\Http\Controllers\Api\ReviewController::class, 'show']);
+Route::delete('/review/{id}', [App\Http\Controllers\Api\ReviewController::class, 'destroy']);
+Route::get('/review/user/{id_user}', [App\Http\Controllers\Api\ReviewController::class, 'searchByUserId']);
+Route::put('/review/{id}', [App\Http\Controllers\Api\ReviewController::class, 'update']);
 
 // });
