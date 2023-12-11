@@ -25,4 +25,11 @@ Route::delete('/review/{id}', [App\Http\Controllers\Api\ReviewController::class,
 Route::get('/review/user/{id_user}', [App\Http\Controllers\Api\ReviewController::class, 'searchByUserId']);
 Route::put('/review/{id}', [App\Http\Controllers\Api\ReviewController::class, 'update']);
 
+Route::get('/feedback', [App\Http\Controllers\Api\FeedbackController::class, 'index']);
+Route::post('/feedback', [App\Http\Controllers\Api\FeedbackController::class, 'store']);
+Route::get('/feedback/{id}', [App\Http\Controllers\Api\FeedbackController::class, 'show']);
+Route::put('/feedback/{id}', [App\Http\Controllers\Api\FeedbackController::class, 'update']);
+Route::delete('/feedback/{id}', [App\Http\Controllers\Api\FeedbackController::class, 'destroy']);
+Route::get('/feedback/user/{id_user}', [App\Http\Controllers\Api\FeedbackController::class, 'searchByUserId']);
+
 // });
