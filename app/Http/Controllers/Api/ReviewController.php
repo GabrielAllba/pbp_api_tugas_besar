@@ -108,6 +108,23 @@ class ReviewController extends Controller
         ], 404);
     }
 
+    public function searchByNamaKamar($nama_kamar)
+    {
+        $review = Review::where('nama_kamar', $nama_kamar)->get();
+
+        if (count( $review) > 0) {
+            return response([
+                'message' => 'review found for review with nama kamar ' . $nama_kamar,
+                'data' => $review 
+            ], 200);
+        }
+
+        return response([
+            'message' => 'review not found for review with nama kamar' . $nama_kamar,
+            'data' => null
+        ], 404);
+    }
+
     public function update(Request $request, int $id)
     {
         $review = Review::find($id);

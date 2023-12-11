@@ -23,6 +23,8 @@ Route::post('/review', [App\Http\Controllers\Api\ReviewController::class, 'store
 Route::get('/review/{id}', [App\Http\Controllers\Api\ReviewController::class, 'show']);
 Route::delete('/review/{id}', [App\Http\Controllers\Api\ReviewController::class, 'destroy']);
 Route::get('/review/user/{id_user}', [App\Http\Controllers\Api\ReviewController::class, 'searchByUserId']);
+Route::get('/review/kamar/{nama_kamar}', [App\Http\Controllers\Api\ReviewController::class, 'searchByNamaKamar']);
 Route::put('/review/{id}', [App\Http\Controllers\Api\ReviewController::class, 'update']);
+
 
 // });
